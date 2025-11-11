@@ -65,12 +65,10 @@ from typing import List
 
 def isprime(num):
     #Find the error and rewrite the correct code. 
-    # Los numeros primos son numeros naturales mayor que 1
-    if num <= 1:
+    if num < 1:
         return False
     for i in range(2, num):
-        # Para ser divisor, el modulo debe dar 0
-        if num % i == 0:
+        if num % i != 0:
             return False
     return True
 
@@ -78,14 +76,12 @@ def isprime(num):
 def check_primes(nums: List[int]) -> List[bool]:
     #Find the error and rewrite the correct code. 
     results = []
-    # Si se accede a una lista por indices, las listas empiezan en 0
-    for i in range(0, len(nums)):
-        # Hemos de de pasarle a la lista nums[i] no el indice de la lista.
-        results.append(isprime(nums[i]))
+    for i in range(1, len(nums)):
+        results.append(isprime(i))
     return results
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# numbers_list = [1, 5, 11, 12, 13, 14, 15]
-# print(check_primes(numbers_list))
+#numbers_list = [1, 5, 11, 12, 13, 14, 15]
+#print(check_primes(numbers_list))
