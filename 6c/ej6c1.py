@@ -69,10 +69,18 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 
 nltk.download("vader_lexicon")
 
+sia = SentimentIntensityAnalyzer()
+
 def sentiment_analysis(text):
     #Write your code here
-    pass
+    score = sia.polarity_scores(text)['compound']
 
+    if score >= 0.05:
+        return 'Positive'
+    if score <= -0.05:
+        return 'Negative'
+    
+    return 'Neutral'
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
